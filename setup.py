@@ -6,11 +6,16 @@ with open('README.rst', encoding='UTF-8') as f:
 setup(
     name='pgbackup',
     version='0.1.0',
-    description="Database backups locally or to AWS S3",
+    description='Database backups locally or to AWS S3.',
     long_description=readme,
-    author="Cameron",
-    author_email="csoleimani89@gmail.com",
-    install_requires=[],
+    author='Keith',
+    author_email='keith@linuxacademy.com',
+    install_requires=['boto3'],
     packages=find_packages('src'),
-    package_dir={'': 'src'}
+    package_dir={'': 'src'},
+    entry_points={
+        'console_scripts': [
+            'pgbackup=pgbackup.cli:main',
+        ]
+    }
 )
